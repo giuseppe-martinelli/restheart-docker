@@ -2,7 +2,7 @@ FROM anapsix/alpine-java:jre8
 
 MAINTAINER SoftInstigate <info@softinstigate.com>
 
-ENV release 2.0.2
+ENV release 3.0.0-beta-1
 
 RUN apk update && apk upgrade && apk add curl
 
