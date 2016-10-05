@@ -2,15 +2,15 @@ FROM anapsix/alpine-java:jre8
 
 MAINTAINER SoftInstigate <info@softinstigate.com>
 
-ENV release 3.0.0-beta-1
+ARG RELEASE
 
 RUN apk update && apk upgrade && apk add curl
 
 WORKDIR /opt/
 
-RUN curl -sL https://github.com/SoftInstigate/restheart/releases/download/${release}/restheart-${release}.tar.gz --output restheart.tar.gz \
+RUN curl -sL https://github.com/SoftInstigate/restheart/releases/download/${RELEASE}/restheart-${RELEASE}.tar.gz --output restheart.tar.gz \
 && tar -zxvf restheart.tar.gz \
-&& mv restheart-${release} restheart \
+&& mv restheart-${RELEASE} restheart \
 && rm -f restheart.tar.gz
 
 WORKDIR /opt/restheart

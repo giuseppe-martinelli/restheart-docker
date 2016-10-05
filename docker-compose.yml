@@ -15,8 +15,11 @@ volumes:
 
 services:
    restheart:
-      image: softinstigate/restheart:3.0.0-beta-1
-      build: .
+      build:
+         context: .
+         args:
+            RELEASE: ${TAG}
+      image: softinstigate/restheart:${TAG}
       ### Uncomment to name the container explicitly
       #container_name: restheart
       depends_on:
