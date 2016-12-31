@@ -2,7 +2,13 @@
 
 [![Docker Stars](https://img.shields.io/docker/stars/softinstigate/restheart.svg?maxAge=2592000)](https://hub.docker.com/r/softinstigate/restheart/) [![Docker Pulls](https://img.shields.io/docker/pulls/softinstigate/restheart.svg?maxAge=2592000)](https://hub.docker.com/r/softinstigate/restheart/)
 
-**Note**: This has been tested with docker version 1.10+. Please [upgrade](https://docs.docker.com/engine/installation/) if you have an older docker version. To check your version: `$ docker -v`.
+**Note**: This has been tested with docker version 1.12. Please [upgrade](https://docs.docker.com/engine/installation/) if you have an older docker version. To check your version: `$ docker -v`.
+
+## Build manually
+
+```
+$ docker build --build-arg=RELEASE=3.0.0 -t softinstigate/restheart:3.0.0 .
+```
 
 ## TL;DR - Use docker-compose
 
@@ -35,11 +41,10 @@ Tail the logs of both services:
 $ docker-compose logs -f
 
 Attaching to restheartdocker_restheart_1, restheartdocker_mongodb_1
-restheart_1  | 08:44:28.538 [main] INFO  org.restheart.Bootstrapper - Starting RESTHeart instance restheart-docker
-restheart_1  | 08:44:28.546 [main] INFO  org.restheart.Bootstrapper - version 2.0.1
+restheart_1  | 08:44:28.538 [main] INFO  org.restheart.Bootstrapper - Starting RESTHeart instance docker-dev
+restheart_1  | 08:44:28.546 [main] INFO  org.restheart.Bootstrapper - version 3.0.0
 restheart_1  | 08:44:28.557 [main] INFO  org.restheart.Bootstrapper - Logging to file /var/log/restheart.log with level DEBUG
 ...
-restheart_1  | 08:44:30.044 [main] INFO  org.restheart.Bootstrapper - Pid file /var/run/restheart--1441246088.pid
 restheart_1  | 08:44:30.045 [main] INFO  org.restheart.Bootstrapper - RESTHeart started
 ```
 
@@ -104,14 +109,14 @@ This section is useful if you want to run RESTHeart with docker but you already 
 
 You can then decide to rebuild the container itself with your version of this file or mount the folder as a volume, so that you can override the default configuration files. For example:
 
-`$ docker run -d -p 80:8080 --name restheart -v "$PWD"/etc:/opt/restheart/etc:ro softinstigate/restheart:2.0.1`
+`$ docker run -d -p 80:8080 --name restheart -v "$PWD"/etc:/opt/restheart/etc:ro softinstigate/restheart:3.0.0`
 
-> We strongly recommend to always add the tag to the image (e.g. `softinstigate/restheart:2.0.1`), so that you are sure which version of RESTHeart you are running.
+> We strongly recommend to always add the tag to the image (e.g. `softinstigate/restheart:3.0.0`), so that you are sure which version of RESTHeart you are running.
 
 ### 1) Pull the MongoDB and RESTHeart images
 
  1. `docker pull mongo:3.2`
- 1. `docker pull softinstigate/restheart:2.0.1`
+ 1. `docker pull softinstigate/restheart:3.0.0`
 
 > We recommend to pull a specific MongoDB image, for example `docker pull mongo:3.2`. RESTHeart has been tested so far with MongoDB 2.6, 3.0 and 3.2.
 
@@ -134,13 +139,13 @@ The `<db-dir>` must be a folder in your host, such as `/var/data/db` or whatever
 Run in **foreground**, linking to the `mongodb` instance, mapping the container's 8080 port to the 80 port on host:
 
 ```
-docker run --rm -i -t -p 80:8080 --name restheart --link mongodb softinstigate/restheart:2.0.1
+docker run --rm -i -t -p 80:8080 --name restheart --link mongodb softinstigate/restheart:3.0.0
 ```
 
 In alternative, you might prefer to run it in **background**:
 
 ```
-docker run -d -p 80:8080 --name restheart --link mongodb softinstigate/restheart:2.0.1
+docker run -d -p 80:8080 --name restheart --link mongodb softinstigate/restheart:3.0.0
 ```
 
 ### 4) Check that is working:
@@ -158,13 +163,13 @@ You can append arguments to *docker run* command to provide RESTHeart and the JV
 For example you can mount an alternate configuration file and specify it as an argument
 
 ```
-docker run --rm -i -t -p 80:8080 -v my-conf-file.yml:/opt/restheart/etc/my-conf-file.yml:ro --name restheart --link mongodb:mongodb softinstigate/restheart:2.0.1 my-conf-file.yml
+docker run --rm -i -t -p 80:8080 -v my-conf-file.yml:/opt/restheart/etc/my-conf-file.yml:ro --name restheart --link mongodb:mongodb softinstigate/restheart:3.0.0 my-conf-file.yml
 ```
 
 If you want to pass system properties to the JVM, just specify -D or -X arguments. Note that in this case you **need** to provide the configuration file as well.
 
 ```
-docker run --rm -i -t -p 80:8080 --name restheart --link mongodb:mongodb softinstigate/restheart:2.0.1 etc/restheart.yml -Dkey=value
+docker run --rm -i -t -p 80:8080 --name restheart --link mongodb:mongodb softinstigate/restheart:3.0.0 etc/restheart.yml -Dkey=value
 ```
 
 ## Accessing the HAL Browser

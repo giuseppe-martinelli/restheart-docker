@@ -15,10 +15,10 @@ volumes:
 
 services:
    restheart:
-      image: softinstigate/restheart:2.0.2
-      build: .
+      ### Change the tag below to run a different version of RESTHeart
+      image: softinstigate/restheart:3.0.0
       ### Uncomment to name the container explicitly
-      #container_name: restheart
+      container_name: restheart
       depends_on:
          - mongodb
       networks:
@@ -33,7 +33,7 @@ services:
    mongodb:
       image: mongo:3.2
       ### Uncomment to name the container explicitly
-      #container_name: restheart-mongo
+      container_name: restheart-mongo
       volumes:
          - datavolume:/data/db
       networks:
