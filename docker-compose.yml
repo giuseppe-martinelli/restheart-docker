@@ -16,7 +16,7 @@ volumes:
 services:
    restheart:
       ### Change the tag below to run a different version of RESTHeart
-      image: softinstigate/restheart:3.0.0
+      image: softinstigate/restheart:${RELEASE}
       ### Uncomment to name the container explicitly
       container_name: restheart
       depends_on:
