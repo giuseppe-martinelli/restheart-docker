@@ -4,7 +4,7 @@ MAINTAINER SoftInstigate <info@softinstigate.com>
 
 ARG RELEASE
 
-RUN apk update && apk upgrade && apk add curl
+RUN apk upgrade --update && apk add --update libstdc++ curl ca-certificates bash
 
 WORKDIR /opt/
 
