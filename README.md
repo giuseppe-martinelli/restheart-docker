@@ -4,10 +4,18 @@
 
 **Note**: This has been tested with docker version 1.12. Please [upgrade](https://docs.docker.com/engine/installation/) if you have an older docker version. To check your version: `$ docker -v`.
 
+## Pull
+
+**Note**: We have no `latest` tag, you MUST set the desidered release version explicitly, because we want to [avoid confusion](http://container-solutions.com/docker-latest-confusion/)!
+
+```
+$ docker pull softinstigate/restheart:3.0.1
+```
+
 ## Build manually
 
 ```
-$ docker build --build-arg=RELEASE=3.0.0 -t softinstigate/restheart:3.0.0 .
+$ docker build --build-arg=RELEASE=3.0.1 -t softinstigate/restheart:3.0.1 .
 ```
 
 ## TL;DR - Use docker-compose
