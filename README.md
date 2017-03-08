@@ -6,8 +6,10 @@
 
 ## Pull
 
-**Note**: We have no `latest` tag, you MUST set the desidered release version explicitly, because we want to [avoid confusion](http://container-solutions.com/docker-latest-confusion/)!
-
+```
+$ docker pull softinstigate/restheart
+```
+Or (better) specify the exact version:
 ```
 $ docker pull softinstigate/restheart:3.0.1
 ```
