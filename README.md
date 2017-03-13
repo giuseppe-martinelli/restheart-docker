@@ -2,9 +2,9 @@
 
 **WARNING**: this repository has been deprecated.
 
-Unfortunately the Docker Hub doesn't allow to re-link to a different Github repository, but RESTHeart's Docker images are now created, tagged and uploaded directly by [Travis-CI](https://travis-ci.org/SoftInstigate/restheart/builds) during the Continuous Integration process, so this disticnt repository is now useless.
+Unfortunately the Docker Hub doesn't allow to re-link to a different Github repository, but RESTHeart's Docker images are now created, tagged and uploaded directly by [Travis-CI](https://travis-ci.org/SoftInstigate/restheart/builds) during the Continuous Integration process, so this repository is now useless.
 
-Please refer to [here](https://github.com/SoftInstigate/restheart/tree/master/Docker) for updated Dockerfile and docker-compose.yml configuiration.
+Please refer to [here](https://github.com/SoftInstigate/restheart/tree/master/Docker) for updated `Dockerfile` and `docker-compose.yml` configuiration.
 
 Instructions are available here: https://hub.docker.com/r/softinstigate/restheart/
 
