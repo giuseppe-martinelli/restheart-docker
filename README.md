@@ -1,6 +1,6 @@
 # Docker images for RESTHeart
 
-**WARNING**: this repository has been deprecated.
+**WARNING**: this repository has been deprecated. Please refer to the [main RESTHeart repository](https://github.com/SoftInstigate/restheart) instead.
 
 Unfortunately the Docker Hub doesn't allow to re-link to a different Github repository, but RESTHeart's Docker images are now created, tagged and uploaded directly by [Travis-CI](https://travis-ci.org/SoftInstigate/restheart/builds) during the Continuous Integration process, so this repository is now useless.
 
